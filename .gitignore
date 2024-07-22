@@ -65,7 +65,8 @@ local.properties
 .autotools
 
 # Java annotation processor (APT)
-.factorypath
+# Duplicated
+#.factorypath
 
 # PDT-specific (PHP Development Tools)
 .buildpath
@@ -80,7 +81,8 @@ local.properties
 .texlipse
 
 # STS (Spring Tool Suite)
-.springBeans
+# Duplicated
+#.springBeans
 
 # Code Recommenders
 .recommenders/
