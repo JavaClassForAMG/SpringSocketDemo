@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UDP via WebSocket Client</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const ws = new WebSocket("ws://localhost:8080/udp"); // Update with your WebSocket URL
+
+            ws.onopen = function() {
+                console.log("Connected to the server");
+            };
+
+            ws.onmessage = function(event) {
+                console.log("Message from server: ", event.data);
+                document.getElementById("messages").textContent += event.data + "\n";
+            };
+
+            ws.onerror = function(error) {
+                console.log("WebSocket error: ", error);
+            };
+
+            document.getElementById("sendButton").addEventListener("click", function() {
+                const message = document.getElementById("messageInput").value;
+                ws.send(message);
+            });
+        });
+    </script>
+</head>
+<body>
+<h2>UDP via WebSocket Client</h2>
+<input type="text" id="messageInput" placeholder="Type a message...">
+<button id="sendButton">Send</button>
+<pre id="messages"></pre>
+</body>
+</html>
